@@ -1,6 +1,6 @@
 # ECEN-361 Lab-02: Clocks, Timers, and Interrupts
 ### Winter-2025
-     Student Name:  Fill-in HERE
+     Student Name:  Dante Castaneda
 
 
 ## Introduction and Objective of the Lab
@@ -75,9 +75,9 @@ Note the speed of D1/D2/D3 - they should seem like a 3-bit binary counter.
 
 Once you have all three LEDs blinking properly, answer the following questions:
 
-1. At what frequency does D1 toggle? [*answer here*]
+1. At what frequency does D1 toggle? [*D1 toggles every second. It is on for 1 second then off for 1 second.*]
 
-2. Do all LEDs toggle at *exactly* the same time? [*answer here*]
+2. Do all LEDs toggle at *exactly* the same time? [*No. D2 toggles twice as fast as D1. D3 toggles twice as fast as D2. While they share the same timer frequency, they do not toggle at exactly the same time.*]
 
 ## Part 2: Changing the clock tree
 
@@ -94,9 +94,9 @@ Change the clock tree to adjust the rates at which the LEDs blink.
 
 1. What has happened to the speed of the timers? [*answer here*]
 
-2. What is the new frequency of LED D1? [*answer here*]
+2. What is the new frequency of LED D1? [*The new frequency is derived by the following equasions. 1s x 8 = 8s = The frecuency of the timer period. Found by: 80Mhz/8= 10MHz, 10MHz/8000=1250Hz, 1/1250Hz= 0.0008s, 10000 x 0.0008s = 8s = the new frequency*]
 
-3. When we changed the frequency, did the Seven-Segment Light update rate change?  (hint, look at the clocks driving the APB1, APB2 buses and which timers are on which bus.  Recall that the Seven-Segment timer is Tim17) [*answer here*]
+3. When we changed the frequency, did the Seven-Segment Light update rate change?  (hint, look at the clocks driving the APB1, APB2 buses and which timers are on which bus.  Recall that the Seven-Segment timer is Tim17) [*Yes, the update rate changed. The update rate has changed from 1s to 8s.*]
 
 ## Part 3: Reaction Timer (5 pts)
 
@@ -139,4 +139,4 @@ For Seven Segment Display Functions, check the MultiFunctionShield.h header file
 
 * Currently, the reaction tester can have a wait time anywhere between 0 and 7000 milliseconds, Implement a minimum wait time in such a way that doesn't change the potential maximum wait time
 
-If you do any of these items - just mention what and how it worked, [*here*].
+If you do any of these items - just mention what and how it worked, [*Premature indicator was implemented. Global variables can_stop and premature_stop were added to keep track of premature input and drive behavior. When a premature stop is preformed the error code 8989 is displayed and the reaction time is not considered in the best reaction time variable.*].
